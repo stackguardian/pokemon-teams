@@ -50,6 +50,9 @@ document.addEventListener("DOMContentLoaded", function(e) {
             if (e.target.matches(".add")) {
                 const trainerId = e.target.dataset.trainer
                 const ul = document.querySelector(`.pokemon-container[data-trainer-id="${trainerId}"]`)
+                if (ul.childElementCount === 6) {
+                    return alert("No more poke for you.")
+                }
                 
                 const addPokemon = (id) => {
                     const options = {
@@ -69,6 +72,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
                         })
                 }
                 addPokemon(trainerId)
+
             } else if (e.target.matches(".release")) {
                 const button = e.target 
                 const pokeId = button.dataset.pokemonId
